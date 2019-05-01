@@ -11,4 +11,8 @@ Face recognition library [repo](https://github.com/ageitgey/face_recognition)
 
 Face Aging [repo](https://github.com/ZZUTK/Face-Aging-CAAE)
 
+***
+
+UI template is added.
+
 **You should add further updates here.**

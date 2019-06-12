@@ -18,4 +18,5 @@ for face_location in face_locations:
     # You can access the actual face itself like this:
     face_image = image[top:bottom, left:right]
     pil_image = Image.fromarray(face_image)
+    pil_image.save("1.jpg", "JPEG", quality=80, optimize=True, progressive=True)
     pil_image.show()

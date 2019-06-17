@@ -16,12 +16,12 @@ def str2bool(v):
 
 
 parser = argparse.ArgumentParser(description='CAAE')
-parser.add_argument('--is_train', type=str2bool, default=True)
+parser.add_argument('--is_train', type=str2bool, default=False)
 parser.add_argument('--epoch', type=int, default=50, help='number of epochs')
 parser.add_argument('--dataset', type=str, default='UTKFace', help='training dataset name that stored in ./data')
 parser.add_argument('--savedir', type=str, default='save', help='dir of saving checkpoints and intermediate training results')
 parser.add_argument('--testdir', type=str, default='test_imgs', help='dir of testing images')
-parser.add_argument('--use_trained_model', type=str2bool, default=False, help='whether train from an existing model or from scratch')
+parser.add_argument('--use_trained_model', type=str2bool, default=True, help='whether train from an existing model or from scratch')
 parser.add_argument('--use_init_model', type=str2bool, default=True, help='whether train from the init model if cannot find an existing model')
 FLAGS = parser.parse_args()
 

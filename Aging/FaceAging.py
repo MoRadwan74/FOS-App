@@ -123,7 +123,10 @@ class FaceAging(object):
         # loss function of encoder + generator
         #self.EG_loss = tf.nn.l2_loss(self.input_image - self.G) / self.size_batch  # L2 loss
         self.EG_loss = tf.reduce_mean(tf.abs(self.input_image - self.G))  # L1 loss
-
+        
+        # tf.reduce_mean = Computes the mean of elements across dimensions of a tensor.
+        # tf.nn.sigmoid_cross_entropy_with_logits = Computes sigmoid cross entropy given logits.
+        
         # loss function of discriminator on z
         self.D_z_loss_prior = tf.reduce_mean(
             tf.nn.sigmoid_cross_entropy_with_logits(logits=self.D_z_prior_logits, labels=tf.ones_like(self.D_z_prior_logits))
@@ -145,7 +148,7 @@ class FaceAging(object):
             tf.nn.sigmoid_cross_entropy_with_logits(logits=self.D_G_logits, labels=tf.ones_like(self.D_G_logits))
         )
 
-        # total variation to smooth the generated image
+        # total variation to smooth the generated image and remove the ghosting artifacts
         tv_y_size = self.size_image
         tv_x_size = self.size_image
         self.tv_loss = (
